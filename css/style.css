@@ -6,38 +6,38 @@
 --------------------------------------------------------- */
 
 :root {
-  --paper: #eef0ec;
-  --paper-raised: #e3e6df;
-  --ink: #1a201c;
-  --ink-soft: #55605a;
-  --rule: #c9cfc5;
-  --accent: #2c4a3b;
-  --accent-soft: #6c8577;
-  --serif-display: "Fraunces", Georgia, "Times New Roman", serif;
-  --serif-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --paper: #f2f2ef;
+  --paper-raised: #e7e8e4;
+  --ink: #1c1f24;
+  --ink-soft: #565b63;
+  --rule: #d3d5d1;
+  --accent: #23395d;
+  --accent-soft: #5e7396;
+  --serif-display: "Times New Roman", Times, Georgia, serif;
+  --serif-body: "Times New Roman", Times, Georgia, serif;
   --mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #151a15;
-    --paper-raised: #1e241d;
-    --ink: #e7ebe3;
-    --ink-soft: #9aa89c;
-    --rule: #303a30;
-    --accent: #8bb89e;
-    --accent-soft: #5c7367;
+    --paper: #15171a;
+    --paper-raised: #1e2126;
+    --ink: #e8e9e6;
+    --ink-soft: #9aa0a8;
+    --rule: #2d3038;
+    --accent: #86a6d1;
+    --accent-soft: #557093;
   }
 }
 
 :root[data-theme="dark"] {
-  --paper: #151a15;
-  --paper-raised: #1e241d;
-  --ink: #e7ebe3;
-  --ink-soft: #9aa89c;
-  --rule: #303a30;
-  --accent: #8bb89e;
-  --accent-soft: #5c7367;
+  --paper: #15171a;
+  --paper-raised: #1e2126;
+  --ink: #e8e9e6;
+  --ink-soft: #9aa0a8;
+  --rule: #2d3038;
+  --accent: #86a6d1;
+  --accent-soft: #557093;
 }
 
 * { box-sizing: border-box; }
@@ -72,9 +72,9 @@ a { color: inherit; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .wrap {
-  max-width: 680px;
+  max-width: 780px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
 /* Running header — like a journal's running head */
@@ -92,14 +92,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 }
 
 .theme-toggle {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
   color: var(--ink-soft);
   background: none;
   border: 1px solid var(--rule);
-  border-radius: 2px;
-  padding: 4px 10px;
+  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -107,6 +108,20 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   color: var(--accent);
   border-color: var(--accent-soft);
 }
+
+/* The icon shown is the action, not the current state: a moon means
+   "switch to dark" (so it shows while in light mode), a sun means
+   "switch to light" (so it shows while in dark mode). */
+.icon-moon { display: block; }
+.icon-sun { display: none; }
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) .icon-moon { display: none; }
+  html:not([data-theme]) .icon-sun { display: block; }
+}
+
+:root[data-theme="dark"] .icon-moon { display: none; }
+:root[data-theme="dark"] .icon-sun { display: block; }
 
 /* Title block */
 
@@ -116,7 +131,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 .name {
   font-family: var(--serif-display);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 3rem;
   letter-spacing: -0.01em;
   text-wrap: balance;
@@ -175,7 +190,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 .section-title {
   font-family: var(--serif-display);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 1.6rem;
   margin: 0;
 }
@@ -220,7 +235,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 .project-title {
   font-family: var(--serif-display);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 1.2rem;
   margin: 0;
   color: var(--ink);
