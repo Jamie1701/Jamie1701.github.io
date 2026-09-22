@@ -48,9 +48,10 @@
 
     <header class="title-block">
       <h1 class="name">Jamie Swaine</h1>
-      <p class="tagline">A working record of projects and research.</p>
+      <p class="tagline">A portfolio of projects and research.</p>
       <nav class="nav">
         <a href="#about">About</a>
+        <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
         <a href="#cv">CV</a>
         <a href="#contact">Correspondence</a>
@@ -68,16 +69,99 @@
         <p>
           <!-- Example copy — replace with a short bio: 2-4 sentences on who you
                are, what you work on, and what this page collects. -->
-          I'm an engineering student interested in the space between research and
-          working software. This page collects finished and in-progress projects
-          alongside a copy of my CV — most of what's below started as a weekend
-          experiment and grew into something worth documenting.
+          This is a placeholder for a short bio that I will replace.
         </p>
+      </section>
+
+      <section id="publications" class="section">
+        <div class="section-heading">
+          <span class="section-number">2</span>
+          <h2 class="section-title">Publications &amp; Conferences</h2>
+          <button class="anchor-link" type="button" data-anchor="publications" aria-label="Copy link to this section">#</button>
+        </div>
+
+        <div class="publications-grid">
+
+          <!-- PUBLICATION CARD — each entry gets up to three action links, added as needed:
+                 1. "view repository" — link to the code, if there is a public repo.
+                 2. "read paper" — opens the PDF directly in a new browser tab (no download attribute),
+                    so it just displays using the browser's built-in PDF viewer. Or, for an
+                    already-published paper, link this straight to the journal/DOI page instead.
+                 3. "download pdf" — same file, but with the `download` attribute so it saves
+                    instead of opening.
+               PDFs live in assets/papers/ — see assets/papers/README.md for the exact filenames
+               this page expects and how to add a new one. -->
+
+          <!-- 1. Most prominent: unpublished, but a repo + own PDF are available -->
+          <article class="pub-card" data-status="preprint">
+            <div class="pub-head">
+              <h3 class="pub-title">An Explainable Ensemble for Multi-Class Seismic Event Discrimination</h3>
+              <span class="pub-index">01</span>
+            </div>
+            <p class="pub-authors"><strong>Swaine J.</strong>, Green D., Moseley B.</p>
+            <p class="pub-meta">manuscript in preparation · 2026</p>
+            <div class="pub-actions">
+              <!-- TODO: replace # with the repository URL -->
+              <a class="pub-link" href="#" target="_blank" rel="noopener">view repository &rarr;</a>
+              <a class="pub-link" href="assets/papers/seismic-ensemble.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
+              <a class="pub-link" href="assets/papers/seismic-ensemble.pdf" download>download pdf &darr;</a>
+            </div>
+          </article>
+
+          <!-- 2. Published — links out to the journal; local PDF is optional -->
+          <article class="pub-card" data-status="published">
+            <div class="pub-head">
+              <h3 class="pub-title">Conditional Generative Models Enable Targeted Exploration of MAX Phase Design Space</h3>
+              <span class="pub-index">02</span>
+            </div>
+            <p class="pub-authors"><strong>Swaine J.</strong>, Bone C., Kayastha P., Butler K., Galloway E., Darby M.</p>
+            <p class="pub-meta">Journal of Materials Chemistry C · 2026 · 95th percentile novelty · 80th percentile impact</p>
+            <div class="pub-actions">
+              <a class="pub-link" href="https://doi.org/10.1039/d6tc01390b" target="_blank" rel="noopener">view in journal &rarr;</a>
+              <!-- Optional — delete this line if you don't want to offer a separate downloadable copy -->
+              <a class="pub-link" href="assets/papers/max-phase-generative.pdf" download>download pdf &darr;</a>
+            </div>
+          </article>
+
+          <!-- 3. Under review — not publicly available yet. Buttons match the others for
+                 uniformity, but they're <button>s with no real link: clicking either one
+                 shows the message below instead of navigating anywhere. Once this is
+                 accepted/public, replace both <button> elements with the same <a> pattern
+                 used in card 1 or 2 above and delete the data-status/pub-note wiring. -->
+          <article class="pub-card" data-status="under-review">
+            <div class="pub-head">
+              <h3 class="pub-title">Brain-EffNet: A Lightweight and Explainable EfficientNet Framework for Multi-Class Brain Tumor Classification from MRI Images</h3>
+              <span class="pub-index">03</span>
+            </div>
+            <p class="pub-authors">Ayivi W., Zhang X., Aligayev A., Kwao L., Ativi W., Sam F., <strong>Swaine J.</strong>, Owusu S.</p>
+            <p class="pub-meta">under review · Springer Nature, The Journal of Supercomputing · 2025</p>
+            <div class="pub-actions">
+              <button class="pub-link" type="button" data-unavailable="This paper is currently under review by The Journal of Supercomputing and is not yet available for public viewing.">read paper &rarr;</button>
+              <button class="pub-link" type="button" data-unavailable="This paper is currently under review by The Journal of Supercomputing and is not yet available for public viewing.">download pdf &darr;</button>
+            </div>
+            <p class="pub-note" hidden></p>
+          </article>
+
+          <!-- 4. Poster — PDF only, no repository -->
+          <article class="pub-card" data-status="poster">
+            <div class="pub-head">
+              <h3 class="pub-title">Vacancy-Confined Single-Atom Catalysts on MXenes for Enhanced CO&#8322; Reduction</h3>
+              <span class="pub-index">04</span>
+            </div>
+            <p class="pub-authors">Aligayev A., Jabbarli U., <strong>Swaine J.</strong>, Jianlin L., Samadova U., Jastrzębska A., Domínguez-Gutiérrez F. J.</p>
+            <p class="pub-meta">poster · FEMS EUROMAT 2025</p>
+            <div class="pub-actions">
+              <a class="pub-link" href="assets/papers/euromat-poster.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
+              <a class="pub-link" href="assets/papers/euromat-poster.pdf" download>download pdf &darr;</a>
+            </div>
+          </article>
+
+        </div>
       </section>
 
       <section id="projects" class="section">
         <div class="section-heading">
-          <span class="section-number">2</span>
+          <span class="section-number">3</span>
           <h2 class="section-title">Projects</h2>
           <button class="anchor-link" type="button" data-anchor="projects" aria-label="Copy link to this section">#</button>
         </div>
@@ -134,7 +218,7 @@
 
       <section id="cv" class="section">
         <div class="section-heading">
-          <span class="section-number">3</span>
+          <span class="section-number">4</span>
           <h2 class="section-title">CV</h2>
           <button class="anchor-link" type="button" data-anchor="cv" aria-label="Copy link to this section">#</button>
         </div>
@@ -144,7 +228,7 @@
 
       <section id="contact" class="section">
         <div class="section-heading">
-          <span class="section-number">4</span>
+          <span class="section-number">5</span>
           <h2 class="section-title">Correspondence</h2>
           <button class="anchor-link" type="button" data-anchor="contact" aria-label="Copy link to this section">#</button>
         </div>
@@ -157,7 +241,7 @@
           <li><span class="label">github</span> <a class="ext" href="https://github.com/Jamie1701" target="_blank" rel="noopener">github.com/Jamie1701</a></li>
           <!-- Optional — fill in the href, or delete the <li> if you'd rather not link these yet -->
           <li><span class="label">linkedin</span> <a href="#">add link</a></li>
-          <li><span class="label">scholar</span> <a href="#">add link</a></li>
+          <li><span class="label">ORCID</span> <a href="#">add link</a></li>
         </ul>
       </section>
 
@@ -300,6 +384,25 @@
         cards.forEach(function (card) {
           var match = !tag || card.getAttribute("data-tags").split(",").indexOf(tag) !== -1;
           card.hidden = !match;
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    // Unavailable-paper placeholder — buttons carrying data-unavailable show
+    // that message in the card's .pub-note instead of navigating anywhere.
+    (function () {
+      var buttons = document.querySelectorAll(".pub-link[data-unavailable]");
+      if (!buttons.length) return;
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          var card = button.closest(".pub-card");
+          var note = card && card.querySelector(".pub-note");
+          if (!note) return;
+          note.textContent = button.getAttribute("data-unavailable");
+          note.hidden = false;
         });
       });
     })();
