@@ -72,6 +72,33 @@ body {
   z-index: 100;
 }
 
+/* Sticky secondary nav — stays out of the way (translated off-screen) until a
+   script adds .visible once the title block has scrolled out of view, so the
+   big name/tagline still gets an unobstructed first impression. */
+
+.sticky-nav {
+  position: fixed;
+  top: 3px;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  padding: 12px 0;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.sticky-nav.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.sticky-nav .nav {
+  margin: 0;
+}
+
 /* Preview banner — remove this block (and the matching <div> in index.html)
    once you've replaced the example content with your own */
 
@@ -582,6 +609,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
   .preview-banner,
   .running-head,
+  .sticky-nav,
   .nav,
   .cv-button,
   .scroll-progress,

@@ -31,6 +31,21 @@
 
   <div class="scroll-progress" id="scroll-progress"></div>
 
+  <!-- Hidden by default (see .sticky-nav in css) — a script below reveals it once the
+       title block scrolls out of view, so the big name/tagline still gets a clean first
+       impression and this only kicks in once it's actually useful. -->
+  <nav class="sticky-nav" id="sticky-nav" aria-label="Section navigation">
+    <div class="wrap">
+      <div class="nav">
+        <a href="#about">About</a>
+        <a href="#publications">Publications &amp; Conferences</a>
+        <a href="#projects">Projects</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Correspondence</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- Remove this banner (and its matching CSS rule) once the example content below is replaced -->
   <!-- <p class="preview-banner">Example content below — replace before you publish real projects</p> -->
 
@@ -598,24 +613,27 @@
 
   <script>
     // Highlight the nav link for whichever section is currently in view.
+    // Two <nav class="nav"> instances now share these hrefs (the one in the title
+    // block and the sticky one), so each href maps to a list of links, not one.
     (function () {
       var navLinks = document.querySelectorAll(".nav a");
       var sections = document.querySelectorAll("main .section");
       if (!("IntersectionObserver" in window) || !sections.length) return;
 
-      var linkFor = {};
+      var linksFor = {};
       navLinks.forEach(function (link) {
-        linkFor[link.getAttribute("href").slice(1)] = link;
+        var key = link.getAttribute("href").slice(1);
+        (linksFor[key] = linksFor[key] || []).push(link);
       });
 
       var observer = new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {
-            var link = linkFor[entry.target.id];
-            if (!link) return;
+            var links = linksFor[entry.target.id];
+            if (!links) return;
             if (entry.isIntersecting) {
               navLinks.forEach(function (l) { l.classList.remove("active"); });
-              link.classList.add("active");
+              links.forEach(function (l) { l.classList.add("active"); });
             }
           });
         },
@@ -623,6 +641,25 @@
       );
 
       sections.forEach(function (section) { observer.observe(section); });
+    })();
+  </script>
+
+  <script>
+    // Reveal the sticky nav only once the title block has scrolled out of view.
+    (function () {
+      var stickyNav = document.getElementById("sticky-nav");
+      var titleBlock = document.querySelector(".title-block");
+      if (!stickyNav || !titleBlock || !("IntersectionObserver" in window)) return;
+
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            stickyNav.classList.toggle("visible", !entry.isIntersecting);
+          });
+        },
+        { threshold: 0 }
+      );
+      observer.observe(titleBlock);
     })();
   </script>
 
