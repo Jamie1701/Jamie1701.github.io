@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jamie Swaine</title>
   <meta name="description" content="Jamie Swaine — portfolio of projects and research." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -163,6 +164,36 @@
         root.setAttribute("data-theme", next);
         localStorage.setItem("theme", next);
       });
+    })();
+  </script>
+
+  <script>
+    // Highlight the nav link for whichever section is currently in view.
+    (function () {
+      var navLinks = document.querySelectorAll(".nav a");
+      var sections = document.querySelectorAll("main .section");
+      if (!("IntersectionObserver" in window) || !sections.length) return;
+
+      var linkFor = {};
+      navLinks.forEach(function (link) {
+        linkFor[link.getAttribute("href").slice(1)] = link;
+      });
+
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            var link = linkFor[entry.target.id];
+            if (!link) return;
+            if (entry.isIntersecting) {
+              navLinks.forEach(function (l) { l.classList.remove("active"); });
+              link.classList.add("active");
+            }
+          });
+        },
+        { rootMargin: "-45% 0px -50% 0px" }
+      );
+
+      sections.forEach(function (section) { observer.observe(section); });
     })();
   </script>
 

@@ -42,7 +42,14 @@
 
 * { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
 
 body {
   margin: 0;
@@ -72,7 +79,7 @@ a { color: inherit; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .wrap {
-  max-width: 780px;
+  max-width: 880px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -162,7 +169,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav a.active {
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
@@ -216,6 +224,13 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   border: 1px solid var(--rule);
   border-radius: 2px;
   padding: 22px 24px;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-soft);
+  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.25);
 }
 
 .project-head {
@@ -350,4 +365,35 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
+}
+
+/* Print — plain black-on-white, no chrome */
+
+@media print {
+  :root {
+    --paper: #ffffff;
+    --paper-raised: #ffffff;
+    --ink: #000000;
+    --ink-soft: #333333;
+    --rule: #999999;
+    --accent: #000000;
+    --accent-soft: #444444;
+  }
+
+  .preview-banner,
+  .running-head,
+  .nav,
+  .cv-button {
+    display: none;
+  }
+
+  .project-card {
+    border: 1px solid #999;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  .section {
+    break-inside: avoid;
+  }
 }
