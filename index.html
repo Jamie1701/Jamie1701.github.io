@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jamie Swaine</title>
-  <meta name="description" content="Jamie Swaine — portfolio of projects and research." />
+  <meta name="description" content="Jamie Swaine — scientific machine learning and explainable AI for nuclear test-ban verification, energy systems, and materials science." />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#23395d" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jamie1701.github.io/" />
   <meta property="og:title" content="Jamie Swaine" />
-  <meta property="og:description" content="Jamie Swaine — portfolio of projects and research." />
+  <meta property="og:description" content="Jamie Swaine — scientific machine learning and explainable AI for nuclear test-ban verification, energy systems, and materials science." />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Jamie Swaine" />
-  <meta name="twitter:description" content="Jamie Swaine — portfolio of projects and research." />
+  <meta name="twitter:description" content="Jamie Swaine — scientific machine learning and explainable AI for nuclear test-ban verification, energy systems, and materials science." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -48,7 +48,7 @@
 
     <header class="title-block">
       <h1 class="name">Jamie Swaine</h1>
-      <p class="tagline">A portfolio of projects and research.</p>
+      <p class="tagline">Scientific machine learning for nuclear security, energy, and materials.</p>
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#publications">Publications & Conferences</a>
@@ -167,7 +167,16 @@
           <button class="anchor-link" type="button" data-anchor="projects" aria-label="Copy link to this section">#</button>
         </div>
 
-        <div class="tag-filter" id="tag-filter"></div>
+        <button class="tag-filter-toggle" type="button" id="tag-filter-toggle" aria-expanded="false" aria-controls="tag-filter">filter by tag &#9656;</button>
+        <button class="tag-filter-toggle" type="button" id="date-filter-toggle" aria-expanded="false" aria-controls="date-filter">sort by date &#9656;</button>
+        <div class="tag-filter" id="tag-filter" hidden></div>
+        <!-- Sort only (projects only carry a year, not an exact date) — reorders the cards
+             below and renumbers their P0x index badges to match. Defaults to newest first
+             on load, independent of the "filter by tag" toggle above. -->
+        <div class="tag-filter" id="date-filter" hidden>
+          <button type="button" class="tag-chip active" data-sort="desc">newest first</button>
+          <button type="button" class="tag-chip" data-sort="asc">oldest first</button>
+        </div>
 
         <div class="projects-grid">
 
@@ -188,7 +197,7 @@
                in this repo yet — see assets/projects/README.md for exactly which local file
                maps to which filename here. -->
 
-          <article class="project-card" data-tags="python,reservoir-engineering,multiphase-flow,co2-storage">
+          <article class="project-card" data-tags="python,reservoir-engineering,multiphase-flow,co2-storage" data-year="2026">
             <div class="project-head">
               <h3 class="project-title">Displacement Mechanisms in Subsurface Multiphase Flow: Buckley-Leverett Advection and Spontaneous Imbibition</h3>
               <span class="project-index">P01</span>
@@ -211,7 +220,7 @@
           <!-- PDF path for this one is a placeholder — the source file wasn't found under
                ~/Documents/IMPERIAL/assessment. Jamie: point me at the real file, or drop it
                into assets/projects/geothermal-ates.pdf yourself. -->
-          <article class="project-card" data-tags="geothermal,ates,reservoir-simulation,icferst,energy-storage">
+          <article class="project-card" data-tags="geothermal,ates,reservoir-simulation,icferst,energy-storage" data-year="2026">
             <div class="project-head">
               <h3 class="project-title">Geothermal Energy and Underground Thermal Energy Storage</h3>
               <span class="project-index">P02</span>
@@ -233,7 +242,7 @@
           </article>
 
           <!-- Same placeholder-PDF situation as the card above. -->
-          <article class="project-card" data-tags="co2-storage,reservoir-simulation,icferst,uncertainty-analysis">
+          <article class="project-card" data-tags="co2-storage,reservoir-simulation,icferst,uncertainty-analysis" data-year="2026">
             <div class="project-head">
               <h3 class="project-title">Scenario-Based Reservoir Uncertainty Analysis for CO&#8322; Storage</h3>
               <span class="project-index">P03</span>
@@ -256,7 +265,7 @@
           <!-- [NEEDS CONFIRMATION] — only the intro was skimmed. Source: assessment/GEMS4/main.pdf
                — do NOT use the sibling file named like an assignment submission; regenerate
                the PDF under the filename below instead. -->
-          <article class="project-card" data-tags="co2-storage,reservoir-engineering,python">
+          <article class="project-card" data-tags="co2-storage,reservoir-engineering,python" data-year="2026">
             <div class="project-head">
               <h3 class="project-title">Comparative CO&#8322; Plume Migration Behaviour: In Salah vs Sleipner Storage Sites</h3>
               <span class="project-index">P04</span>
@@ -279,7 +288,7 @@
                from Imperial-provided contour/fault maps and well data (assessment/.../data/) —
                check it doesn't embed proprietary figures before dropping a PDF in here. May
                need redacting, or shipping with the description only and no PDF. -->
-          <article class="project-card" data-tags="reservoir-geology,co2-storage,structural-modelling">
+          <article class="project-card" data-tags="reservoir-geology,co2-storage,structural-modelling" data-year="2026">
             <div class="project-head">
               <h3 class="project-title">Structural Reservoir Modelling of the Atlas CO&#8322; Storage Site (Rotliegend Group)</h3>
               <span class="project-index">P05</span>
@@ -301,7 +310,7 @@
                (filename collision warning: its source PDF is ALSO called solving_flow_eq.pdf,
                same as the Buckley-Leverett report above, but it's a different document — see
                pages_info.md before copying files in.) -->
-          <article class="project-card" data-tags="python,well-testing,numerical-methods,reservoir-engineering">
+          <article class="project-card" data-tags="python,well-testing,numerical-methods,reservoir-engineering" data-year="2026">
             <div class="project-head">
               <h3 class="project-title">Pressure Transient Analysis via Laplace-Domain Solutions to the 1D Diffusivity Equation</h3>
               <span class="project-index">P06</span>
@@ -323,7 +332,7 @@
           <!-- No report PDF for this one — code only. CAUTION: the source repo also contains
                unrelated ethics-form files (consent_form.pdf, participant-information-sheet.pdf)
                that must be stripped before it's pushed anywhere public. -->
-          <article class="project-card" data-tags="python,monte-carlo,statistical-physics,spin-systems">
+          <article class="project-card" data-tags="python,monte-carlo,statistical-physics,spin-systems" data-year="2025">
             <div class="project-head">
               <h3 class="project-title">A Monte Carlo Simulator for 2D Heisenberg Spin Lattices, with a Magnetic Skyrmion Extension</h3>
               <span class="project-index">P07</span>
@@ -339,7 +348,7 @@
           </article>
 
           <!-- No report PDF for this one — code only. -->
-          <article class="project-card" data-tags="python,pandas,data-engineering,environmental-data">
+          <article class="project-card" data-tags="python,pandas,data-engineering,environmental-data" data-year="2025">
             <div class="project-head">
               <h3 class="project-title">Multi-Site Environmental Data Pipeline: London Air Quality &amp; Weather Integration</h3>
               <span class="project-index">P08</span>
@@ -355,7 +364,7 @@
           </article>
 
           <!-- No report PDF for this one — a notebook only, no repo. -->
-          <article class="project-card" data-tags="python,numerical-methods,verification-validation,pde">
+          <article class="project-card" data-tags="python,numerical-methods,verification-validation,pde" data-year="2025">
             <div class="project-head">
               <h3 class="project-title">Verification &amp; Validation in Numerical Computing: From Curve Fitting to a PDE Solver</h3>
               <span class="project-index">P09</span>
@@ -376,7 +385,7 @@
           <!-- [NEEDS CONFIRMATION] — only the first task was read; a second task in the same
                notebook is unread. Dataset appears to be sourced from a published paper
                (Warder et al.) — check citation requirements before reposting any data. -->
-          <article class="project-card" data-tags="python,machine-learning,classification,renewable-energy">
+          <article class="project-card" data-tags="python,machine-learning,classification,renewable-energy" data-year="2025">
             <div class="project-head">
               <h3 class="project-title">Machine Learning for Wind Resource Characterisation</h3>
               <span class="project-index">P10</span>
@@ -392,7 +401,7 @@
 
           <!-- [NEEDS CONFIRMATION] — inferred only from checkpoint filenames (beat_cnn,
                transformer_ecg, unet_base, diffusion_unet); the notebooks themselves are unread. -->
-          <article class="project-card" data-tags="python,pytorch,deep-learning,signal-processing,generative-models">
+          <article class="project-card" data-tags="python,pytorch,deep-learning,signal-processing,generative-models" data-year="2025">
             <div class="project-head">
               <h3 class="project-title">Deep Learning for ECG Signal Classification and Synthesis</h3>
               <span class="project-index">P11</span>
@@ -414,7 +423,7 @@
 
           <!-- [NEEDS CONFIRMATION] — year not given, guessed from likely UCL BSc timing.
                Repo: github.com/Jamie1701/Peak-picking -->
-          <article class="project-card" data-tags="python,spectroscopy,signal-processing,cheminformatics">
+          <article class="project-card" data-tags="python,spectroscopy,signal-processing,cheminformatics" data-year="2023">
             <div class="project-head">
               <h3 class="project-title">Automated Peak Detection and Functional-Group Assignment for IR and NMR Spectra</h3>
               <span class="project-index">P12</span>
@@ -432,7 +441,7 @@
           <!-- Repo name needs changing before this goes public (currently "Electrochemistry_1")
                — Jamie flagged this himself. Source report: ~/Documents/Electrochemistry/Report/Results_2.pdf
                (dated 19 Jan 2025). Repo: github.com/Jamie1701/Electrochemistry_1 -->
-          <article class="project-card" data-tags="electrochemistry,materials-science,energy-storage">
+          <article class="project-card" data-tags="electrochemistry,materials-science,energy-storage" data-year="2025">
             <div class="project-head">
               <h3 class="project-title">Optimisation of an Iron Redox Flow Cell Cathode via Electrolyte Cation and pH Screening</h3>
               <span class="project-index">P13</span>
@@ -457,7 +466,7 @@
                across 144 classes would be <1% — leaving this as an open placeholder rather
                than guessing further, per Jamie's own suggestion.
                Repo: github.com/Jamie1701/Multilayer-perceptron- -->
-          <article class="project-card" data-tags="python,numpy,machine-learning,crystallography">
+          <article class="project-card" data-tags="python,numpy,machine-learning,crystallography" data-year="2024">
             <div class="project-head">
               <h3 class="project-title">A NumPy Multilayer Perceptron for Crystal Structure Space Group Prediction</h3>
               <span class="project-index">P14</span>
@@ -477,7 +486,7 @@
                thanking the supervisor by name and crediting ChatGPT for spelling/grammar —
                all of that needs stripping, not just the filename.
                Source: ~/Documents/Literature_Review/Literature_review/ZWIJNENBURG3.pdf (17pp, Feb 2025) -->
-          <article class="project-card" data-tags="literature-review,deep-learning,crystallography,computational-chemistry">
+          <article class="project-card" data-tags="literature-review,deep-learning,crystallography,computational-chemistry" data-year="2025">
             <div class="project-head">
               <h3 class="project-title">Deep Learning for Computational Analysis of Crystal Structures: A Review</h3>
               <span class="project-index">P15</span>
@@ -504,7 +513,7 @@
                an "Actions on feedback" section responding to marker comments — this needs the
                PDF regenerated from the LaTeX source without that banner/section, not just edited.
                Source: ~/Documents/Results_and_Discussion(Comp)/CompChemLATEX(template) copy/computational_chem_final.pdf -->
-          <article class="project-card" data-tags="computational-chemistry,quantum-chemistry,dft">
+          <article class="project-card" data-tags="computational-chemistry,quantum-chemistry,dft" data-year="2024">
             <div class="project-head">
               <h3 class="project-title">Computational Study of Cyclohexane Conformer Stability and Substituent Effects</h3>
               <span class="project-index">P16</span>
@@ -533,7 +542,10 @@
           <button class="anchor-link" type="button" data-anchor="cv" aria-label="Copy link to this section">#</button>
         </div>
         <p>A full CV is available as a PDF.</p>
-        <a class="cv-button" href="assets/cv/CV.pdf" target="_blank" rel="noopener">Download CV (PDF) &darr;</a>
+        <div class="cv-actions">
+          <a class="cv-button" href="assets/cv/CV.pdf" target="_blank" rel="noopener">View CV (PDF) &rarr;</a>
+          <a class="cv-button" href="assets/cv/CV.pdf" download>Download CV (PDF) &darr;</a>
+        </div>
       </section>
 
       <section id="contact" class="section">
@@ -563,7 +575,6 @@
   <div class="wrap">
     <p class="site-footer">
       <span>&copy; 2026 Jamie Swaine</span>
-      <span><a class="ext" href="https://github.com/Jamie1701/Jamie1701.github.io" target="_blank" rel="noopener">view source</a></span>
     </p>
   </div>
 
@@ -696,6 +707,67 @@
           var match = !tag || card.getAttribute("data-tags").split(",").indexOf(tag) !== -1;
           card.hidden = !match;
         });
+      });
+
+      // Collapsed by default — the chip row is a nice-to-have, not required reading.
+      var toggle = document.getElementById("tag-filter-toggle");
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          var expanded = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!expanded));
+          filterBar.hidden = expanded;
+          toggle.innerHTML = expanded ? "filter by tag &#9656;" : "hide tag filter &#9662;";
+        });
+      }
+    })();
+  </script>
+
+  <script>
+    // Sort-by-date for the Projects grid — projects only carry a year (data-year),
+    // not an exact date, so this reorders rather than filters. Defaults to newest
+    // first on load; the toggle reveals chips to flip the direction.
+    (function () {
+      var grid = document.querySelector(".projects-grid");
+      var cards = Array.prototype.slice.call(document.querySelectorAll(".project-card[data-year]"));
+      if (!grid || !cards.length) return;
+
+      function renumber() {
+        Array.prototype.slice.call(grid.querySelectorAll(".project-index")).forEach(function (span, i) {
+          span.textContent = "P" + String(i + 1).padStart(2, "0");
+        });
+      }
+
+      function sortCards(direction) {
+        cards
+          .slice()
+          .sort(function (a, b) {
+            var ya = parseInt(a.getAttribute("data-year"), 10);
+            var yb = parseInt(b.getAttribute("data-year"), 10);
+            return direction === "asc" ? ya - yb : yb - ya;
+          })
+          .forEach(function (card) { grid.appendChild(card); });
+        renumber();
+      }
+
+      sortCards("desc"); // default: most recent first
+
+      var dateToggle = document.getElementById("date-filter-toggle");
+      var datePanel = document.getElementById("date-filter");
+      if (!dateToggle || !datePanel) return;
+
+      dateToggle.addEventListener("click", function () {
+        var expanded = dateToggle.getAttribute("aria-expanded") === "true";
+        dateToggle.setAttribute("aria-expanded", String(!expanded));
+        datePanel.hidden = expanded;
+        dateToggle.innerHTML = expanded ? "sort by date &#9656;" : "hide date sort &#9662;";
+      });
+
+      datePanel.addEventListener("click", function (event) {
+        var chip = event.target.closest(".tag-chip");
+        if (!chip) return;
+        datePanel.querySelectorAll(".tag-chip").forEach(function (c) { c.classList.remove("active"); });
+        chip.classList.add("active");
+        sortCards(chip.getAttribute("data-sort"));
       });
     })();
   </script>

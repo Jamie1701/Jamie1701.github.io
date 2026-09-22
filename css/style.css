@@ -249,11 +249,38 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 .section > p:last-child { margin-bottom: 0; }
 
+.tag-filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+  margin: 0 8px 20px 0;
+}
+
+.tag-filter-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent-soft);
+}
+
 .tag-filter {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin: 0 0 20px;
+}
+
+/* Author rules for display beat the browser's own [hidden] default, so this
+   needs to be explicit or the collapsed chip row would still show as flex. */
+.tag-filter[hidden] {
+  display: none;
 }
 
 .tag-chip {
@@ -449,6 +476,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 .cv-button:hover { background: var(--ink); }
 
+.cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 /* Correspondence (contact) */
 
 .contact-list {
@@ -554,6 +587,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .scroll-progress,
   .copy-btn,
   .anchor-link,
+  .tag-filter-toggle,
   .tag-filter,
   .pub-actions,
   .pub-note {
