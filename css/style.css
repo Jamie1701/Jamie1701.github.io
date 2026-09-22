@@ -19,7 +19,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --paper: #151a15;
     --paper-raised: #1e241d;
     --ink: #e7ebe3;
@@ -28,6 +28,16 @@
     --accent: #8bb89e;
     --accent-soft: #5c7367;
   }
+}
+
+:root[data-theme="dark"] {
+  --paper: #151a15;
+  --paper-raised: #1e241d;
+  --ink: #e7ebe3;
+  --ink-soft: #9aa89c;
+  --rule: #303a30;
+  --accent: #8bb89e;
+  --accent-soft: #5c7367;
 }
 
 * { box-sizing: border-box; }
@@ -42,6 +52,20 @@ body {
   font-size: 19px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Preview banner — remove this block (and the matching <div> in index.html)
+   once you've replaced the example content with your own */
+
+.preview-banner {
+  background: var(--accent);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 8px 16px;
 }
 
 a { color: inherit; }
@@ -58,13 +82,30 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .running-head {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   font-family: var(--mono);
   font-size: 0.7rem;
   letter-spacing: 0.06em;
   color: var(--ink-soft);
   padding: 20px 0;
   border-bottom: 1px solid var(--rule);
+}
+
+.theme-toggle {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent-soft);
 }
 
 /* Title block */
@@ -147,11 +188,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 .section > p:last-child { margin-bottom: 0; }
 
-.placeholder {
-  color: var(--ink-soft);
-  font-style: italic;
-}
-
 /* Projects */
 
 .projects-grid {
@@ -167,11 +203,26 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   padding: 22px 24px;
 }
 
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 4px;
+}
+
+.project-index {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--accent-soft);
+  white-space: nowrap;
+}
+
 .project-title {
   font-family: var(--serif-display);
   font-weight: 500;
   font-size: 1.2rem;
-  margin: 0 0 4px;
+  margin: 0;
   color: var(--ink);
 }
 
