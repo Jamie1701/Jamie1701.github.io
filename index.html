@@ -63,6 +63,7 @@
         <div class="section-heading">
           <span class="section-number">1</span>
           <h2 class="section-title">About</h2>
+          <button class="anchor-link" type="button" data-anchor="about" aria-label="Copy link to this section">#</button>
         </div>
         <p>
           <!-- Example copy — replace with a short bio: 2-4 sentences on who you
@@ -78,13 +79,18 @@
         <div class="section-heading">
           <span class="section-number">2</span>
           <h2 class="section-title">Projects</h2>
+          <button class="anchor-link" type="button" data-anchor="projects" aria-label="Copy link to this section">#</button>
         </div>
+
+        <div class="tag-filter" id="tag-filter"></div>
 
         <div class="projects-grid">
 
           <!-- PROJECT CARD TEMPLATE — copy this <article> block to add a new project.
-               Example content below — replace title, tags, description and link. -->
-          <article class="project-card">
+               Example content below — replace title, tags, description and link.
+               data-tags drives the filter chips above: lowercase, comma-separated,
+               no spaces (e.g. "python,ml,rendering") — keep it in sync with project-meta. -->
+          <article class="project-card" data-tags="python,ml,rendering">
             <div class="project-head">
               <h3 class="project-title">Neural Field Renderer</h3>
               <span class="project-index">P01</span>
@@ -97,7 +103,7 @@
             <a class="project-link" href="#" target="_blank" rel="noopener">view repository &rarr;</a>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-tags="go,systems">
             <div class="project-head">
               <h3 class="project-title">Distributed Task Queue</h3>
               <span class="project-index">P02</span>
@@ -110,7 +116,7 @@
             <a class="project-link" href="#" target="_blank" rel="noopener">view repository &rarr;</a>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-tags="typescript,react,nlp">
             <div class="project-head">
               <h3 class="project-title">Sentiment Dashboard</h3>
               <span class="project-index">P03</span>
@@ -130,6 +136,7 @@
         <div class="section-heading">
           <span class="section-number">3</span>
           <h2 class="section-title">CV</h2>
+          <button class="anchor-link" type="button" data-anchor="cv" aria-label="Copy link to this section">#</button>
         </div>
         <p>The full CV is available as a PDF.</p>
         <a class="cv-button" href="assets/cv/CV.pdf" target="_blank" rel="noopener">Download CV (PDF) &darr;</a>
@@ -139,6 +146,7 @@
         <div class="section-heading">
           <span class="section-number">4</span>
           <h2 class="section-title">Correspondence</h2>
+          <button class="anchor-link" type="button" data-anchor="contact" aria-label="Copy link to this section">#</button>
         </div>
         <ul class="contact-list">
           <li>
@@ -146,7 +154,7 @@
             <a href="mailto:j.a.swaine02@gmail.com">j.a.swaine02@gmail.com</a>
             <button class="copy-btn" type="button" data-copy="j.a.swaine02@gmail.com">copy</button>
           </li>
-          <li><span class="label">github</span> <a href="https://github.com/Jamie1701" target="_blank" rel="noopener">github.com/Jamie1701</a></li>
+          <li><span class="label">github</span> <a class="ext" href="https://github.com/Jamie1701" target="_blank" rel="noopener">github.com/Jamie1701</a></li>
           <!-- Optional — fill in the href, or delete the <li> if you'd rather not link these yet -->
           <li><span class="label">linkedin</span> <a href="#">add link</a></li>
           <li><span class="label">scholar</span> <a href="#">add link</a></li>
@@ -160,7 +168,7 @@
   <div class="wrap">
     <p class="site-footer">
       <span>&copy; 2026 Jamie Swaine</span>
-      <span>jamie1701.github.io</span>
+      <span><a class="ext" href="https://github.com/Jamie1701/Jamie1701.github.io" target="_blank" rel="noopener">view source</a></span>
     </p>
   </div>
 
@@ -247,6 +255,74 @@
           var original = button.textContent;
           button.textContent = "copied";
           setTimeout(function () { button.textContent = original; }, 1500);
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    // Tag filter chips for the Projects grid — built from each card's data-tags
+    (function () {
+      var filterBar = document.getElementById("tag-filter");
+      var cards = Array.prototype.slice.call(document.querySelectorAll(".project-card[data-tags]"));
+      if (!filterBar || !cards.length) return;
+
+      var tags = [];
+      cards.forEach(function (card) {
+        card.getAttribute("data-tags").split(",").forEach(function (tag) {
+          if (tag && tags.indexOf(tag) === -1) tags.push(tag);
+        });
+      });
+      tags.sort();
+
+      function makeChip(label, value) {
+        var chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "tag-chip";
+        chip.textContent = label;
+        chip.setAttribute("data-tag", value);
+        return chip;
+      }
+
+      var allChip = makeChip("all", "");
+      allChip.classList.add("active");
+      filterBar.appendChild(allChip);
+      tags.forEach(function (tag) { filterBar.appendChild(makeChip(tag, tag)); });
+
+      filterBar.addEventListener("click", function (event) {
+        var chip = event.target.closest(".tag-chip");
+        if (!chip) return;
+
+        filterBar.querySelectorAll(".tag-chip").forEach(function (c) { c.classList.remove("active"); });
+        chip.classList.add("active");
+
+        var tag = chip.getAttribute("data-tag");
+        cards.forEach(function (card) {
+          var match = !tag || card.getAttribute("data-tags").split(",").indexOf(tag) !== -1;
+          card.hidden = !match;
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    // Copy a direct link to a section when its # button is clicked
+    (function () {
+      var buttons = document.querySelectorAll(".anchor-link");
+      if (!buttons.length) return;
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          var id = button.getAttribute("data-anchor");
+          var url = location.origin + location.pathname + "#" + id;
+          location.hash = id;
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(url).then(function () {
+              var original = button.textContent;
+              button.textContent = "\2713";
+              setTimeout(function () { button.textContent = original; }, 1200);
+            });
+          }
         });
       });
     })();
