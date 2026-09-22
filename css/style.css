@@ -339,18 +339,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   max-width: 34em;
 }
 
-.project-link {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-}
-
-.project-link:hover {
-  border-bottom-color: var(--accent);
-}
-
 /* Publications */
 
 .publications-grid {

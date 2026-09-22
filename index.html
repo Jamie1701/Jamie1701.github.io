@@ -36,7 +36,7 @@
 
   <div class="wrap">
     <p class="running-head">
-      <span>Jamie Swaine</span>
+      <span>Research Portfolio</span>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5" /><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" /></svg>
         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" /></svg>
@@ -51,7 +51,7 @@
       <p class="tagline">A portfolio of projects and research.</p>
       <nav class="nav">
         <a href="#about">About</a>
-        <a href="#publications">Publications</a>
+        <a href="#publications">Publications & Conferences</a>
         <a href="#projects">Projects</a>
         <a href="#cv">CV</a>
         <a href="#contact">Correspondence</a>
@@ -170,47 +170,239 @@
 
         <div class="projects-grid">
 
-          <!-- PROJECT CARD TEMPLATE — copy this <article> block to add a new project.
-               Example content below — replace title, tags, description and link.
+          <!-- PROJECT CARD — copy an <article> block below to add a new project.
                data-tags drives the filter chips above: lowercase, comma-separated,
-               no spaces (e.g. "python,ml,rendering") — keep it in sync with project-meta. -->
-          <article class="project-card" data-tags="python,ml,rendering">
+               no spaces (e.g. "python,reservoir-engineering") — keep in sync with project-meta.
+               Action buttons reuse the .pub-actions/.pub-link classes from the Publications
+               section (same three link types: view repository / read paper / download pdf —
+               see the comment above the Publications grid for how each works). Cards below
+               with no repository link yet have a TODO comment — the underlying code currently
+               lives in Imperial's GitHub Classroom org, which can't be linked publicly as-is;
+               push a cleaned copy to your own GitHub, then add:
+                 <a class="pub-link" href="..." target="_blank" rel="noopener">view repository &rarr;</a>
+               DRAFT NOTE: everything below is a first pass from a light skim of
+               ~/Documents/IMPERIAL/assessment — titles/descriptions marked [NEEDS CONFIRMATION]
+               are best guesses. Full sourcing detail (exact local paths, confidence levels,
+               flags) is in ~/Downloads/pages_info.md. Report PDFs referenced below don't exist
+               in this repo yet — see assets/projects/README.md for exactly which local file
+               maps to which filename here. -->
+
+          <article class="project-card" data-tags="python,reservoir-engineering,multiphase-flow,co2-storage">
             <div class="project-head">
-              <h3 class="project-title">Neural Field Renderer</h3>
+              <h3 class="project-title">Displacement Mechanisms in Subsurface Multiphase Flow: Buckley-Leverett Advection and Spontaneous Imbibition</h3>
               <span class="project-index">P01</span>
             </div>
-            <p class="project-meta">python · ml · rendering · 2026</p>
+            <p class="project-meta">python · reservoir-engineering · multiphase-flow · 2026</p>
             <p class="project-desc">
-              A from-scratch implementation of a neural radiance field renderer,
-              benchmarked against the original NeRF paper on a set of synthetic scenes.
+              Solved three immiscible-displacement problems — CO&#8322; injection into a saline
+              aquifer, water invading a hydrogen-storage formation, and water displacing CO&#8322;
+              in a mixed-wet reservoir — using both analytical Buckley-Leverett front-tracking
+              and a numerical spontaneous-imbibition (nonlinear diffusion) model, comparing the
+              two across drainage and imbibition regimes.
             </p>
-            <a class="project-link" href="#" target="_blank" rel="noopener">view repository &rarr;</a>
+            <div class="pub-actions">
+              <!-- TODO: repository — see comment above. Source: assessment/BuckleyLevrett -->
+              <a class="pub-link" href="assets/projects/buckley-leverett-displacement.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
+              <a class="pub-link" href="assets/projects/buckley-leverett-displacement.pdf" download>download pdf &darr;</a>
+            </div>
           </article>
 
-          <article class="project-card" data-tags="go,systems">
+          <!-- PDF path for this one is a placeholder — the source file wasn't found under
+               ~/Documents/IMPERIAL/assessment. Jamie: point me at the real file, or drop it
+               into assets/projects/geothermal-ates.pdf yourself. -->
+          <article class="project-card" data-tags="geothermal,ates,reservoir-simulation,icferst,energy-storage">
             <div class="project-head">
-              <h3 class="project-title">Distributed Task Queue</h3>
+              <h3 class="project-title">Geothermal Energy and Underground Thermal Energy Storage</h3>
               <span class="project-index">P02</span>
             </div>
-            <p class="project-meta">go · systems · 2025</p>
+            <p class="project-meta">icferst · reservoir-simulation · geothermal · 2026</p>
             <p class="project-desc">
-              A lightweight, Redis-backed task queue built to understand consensus
-              and failure recovery in distributed systems.
+              Evaluated the performance of an Aquifer Thermal Energy Storage (ATES) system in a
+              fractured granite reservoir using the IC-FERST simulator over a five-year
+              operating period, assessing thermal recovery, heat-pump electricity demand, and
+              CO&#8322; savings relative to gas heating across two demand scenarios. Uncertainty
+              analysis identified fractured basement permeability and regional groundwater flow
+              as the dominant controls on long-term performance.
             </p>
-            <a class="project-link" href="#" target="_blank" rel="noopener">view repository &rarr;</a>
+            <div class="pub-actions">
+              <!-- TODO: PDF path unconfirmed — see comment above -->
+              <a class="pub-link" href="assets/projects/geothermal-ates.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
+              <a class="pub-link" href="assets/projects/geothermal-ates.pdf" download>download pdf &darr;</a>
+            </div>
           </article>
 
-          <article class="project-card" data-tags="typescript,react,nlp">
+          <!-- Same placeholder-PDF situation as the card above. -->
+          <article class="project-card" data-tags="co2-storage,reservoir-simulation,icferst,uncertainty-analysis">
             <div class="project-head">
-              <h3 class="project-title">Sentiment Dashboard</h3>
+              <h3 class="project-title">Scenario-Based Reservoir Uncertainty Analysis for CO&#8322; Storage</h3>
               <span class="project-index">P03</span>
             </div>
-            <p class="project-meta">typescript · react · nlp · 2025</p>
+            <p class="project-meta">icferst · uncertainty-analysis · co2-storage · 2026</p>
             <p class="project-desc">
-              A real-time dashboard visualising sentiment trends extracted from
-              a streaming text pipeline.
+              Used the Imperial College Finite Element Reservoir Simulator (ICFERST) to run flow
+              simulations constraining reservoir quality for large-scale CO&#8322; storage,
+              combining a coarse parameter sweep with composite scenario simulations to assess
+              storage potential and leakage risk under geological uncertainty in porosity,
+              permeability, and connectivity.
             </p>
-            <a class="project-link" href="#" target="_blank" rel="noopener">view repository &rarr;</a>
+            <div class="pub-actions">
+              <!-- TODO: PDF path unconfirmed — see comment above -->
+              <a class="pub-link" href="assets/projects/co2-storage-uncertainty.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
+              <a class="pub-link" href="assets/projects/co2-storage-uncertainty.pdf" download>download pdf &darr;</a>
+            </div>
+          </article>
+
+          <!-- [NEEDS CONFIRMATION] — only the intro was skimmed. Source: assessment/GEMS4/main.pdf
+               — do NOT use the sibling file named like an assignment submission; regenerate
+               the PDF under the filename below instead. -->
+          <article class="project-card" data-tags="co2-storage,reservoir-engineering,python">
+            <div class="project-head">
+              <h3 class="project-title">Comparative CO&#8322; Plume Migration Behaviour: In Salah vs Sleipner Storage Sites</h3>
+              <span class="project-index">P04</span>
+            </div>
+            <p class="project-meta">co2-storage · reservoir-engineering · python · 2026</p>
+            <p class="project-desc">
+              Compared reservoir depth, porosity, permeability, and thickness at two
+              industrial-scale CO&#8322; storage sites to explain their markedly different
+              plume-spreading behaviour, drawing on published reservoir characterisation data.
+            </p>
+            <div class="pub-actions">
+              <!-- TODO: repository — see comment above. Source: assessment/GEMS4 -->
+              <a class="pub-link" href="assets/projects/co2-plume-migration.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
+              <a class="pub-link" href="assets/projects/co2-plume-migration.pdf" download>download pdf &darr;</a>
+            </div>
+          </article>
+
+          <!-- [NEEDS CONFIRMATION] — title only skimmed.
+               CAUTION: the source write-up (assessment/assessment_6/.../answers.pdf) was built
+               from Imperial-provided contour/fault maps and well data (assessment/.../data/) —
+               check it doesn't embed proprietary figures before dropping a PDF in here. May
+               need redacting, or shipping with the description only and no PDF. -->
+          <article class="project-card" data-tags="reservoir-geology,co2-storage,structural-modelling">
+            <div class="project-head">
+              <h3 class="project-title">Structural Reservoir Modelling of the Atlas CO&#8322; Storage Site (Rotliegend Group)</h3>
+              <span class="project-index">P05</span>
+            </div>
+            <p class="project-meta">reservoir-geology · structural-modelling · co2-storage · 2026</p>
+            <p class="project-desc">
+              Built cross-sections and a structural model of a Southern North Sea reservoir from
+              contour and fault maps to estimate trap volume for CO&#8322; storage, combining
+              porosity and permeability derived from well-core and log data.
+            </p>
+            <div class="pub-actions">
+              <!-- TODO: repository — see comment above. TODO: PDF — see CAUTION above -->
+              <a class="pub-link" href="assets/projects/atlas-co2-structural-model.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
+              <a class="pub-link" href="assets/projects/atlas-co2-structural-model.pdf" download>download pdf &darr;</a>
+            </div>
+          </article>
+
+          <!-- [NEEDS CONFIRMATION] — only the title page was skimmed. Source: assessment/GEOMECHANICS
+               (filename collision warning: its source PDF is ALSO called solving_flow_eq.pdf,
+               same as the Buckley-Leverett report above, but it's a different document — see
+               pages_info.md before copying files in.) -->
+          <article class="project-card" data-tags="python,well-testing,numerical-methods,reservoir-engineering">
+            <div class="project-head">
+              <h3 class="project-title">Pressure Transient Analysis via Laplace-Domain Solutions to the 1D Diffusivity Equation</h3>
+              <span class="project-index">P06</span>
+            </div>
+            <p class="project-meta">python · well-testing · numerical-methods · 2026</p>
+            <p class="project-desc">
+              Solved the 1D pressure-diffusivity equation in the Laplace domain and recovered
+              the time-domain flow-rate response via the Stehfest numerical inversion algorithm,
+              validating results against the analytical solution and the early- and late-time
+              asymptotic limits across a range of inversion orders.
+            </p>
+            <div class="pub-actions">
+              <!-- TODO: repository — see comment above. Source: assessment/GEOMECHANICS -->
+              <a class="pub-link" href="assets/projects/pressure-transient-analysis.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
+              <a class="pub-link" href="assets/projects/pressure-transient-analysis.pdf" download>download pdf &darr;</a>
+            </div>
+          </article>
+
+          <!-- No report PDF for this one — code only. CAUTION: the source repo also contains
+               unrelated ethics-form files (consent_form.pdf, participant-information-sheet.pdf)
+               that must be stripped before it's pushed anywhere public. -->
+          <article class="project-card" data-tags="python,monte-carlo,statistical-physics,spin-systems">
+            <div class="project-head">
+              <h3 class="project-title">mcsim: A Monte Carlo Simulator for 2D Heisenberg Spin Lattices, with a Magnetic Skyrmion Extension</h3>
+              <span class="project-index">P07</span>
+            </div>
+            <p class="project-meta">python · monte-carlo · statistical-physics · 2025</p>
+            <p class="project-desc">
+              Built an installable Python package implementing Metropolis Monte Carlo
+              simulation of 2D Heisenberg spin lattices, with local and global
+              energy-minimisation routines and a visualisation tool, then extended it in a
+              self-directed notebook to model magnetic skyrmion configurations.
+            </p>
+            <!-- TODO: repository — see comment above. Source: assessment/assessment_2 -->
+          </article>
+
+          <!-- No report PDF for this one — code only. -->
+          <article class="project-card" data-tags="python,pandas,data-engineering,environmental-data">
+            <div class="project-head">
+              <h3 class="project-title">Multi-Site Environmental Data Pipeline: London Air Quality &amp; Weather Integration</h3>
+              <span class="project-index">P08</span>
+            </div>
+            <p class="project-meta">python · pandas · data-engineering · 2025</p>
+            <p class="project-desc">
+              Built a Pandas pipeline integrating Met Office weather-station records and London
+              Air Quality Network pollution readings across roughly twenty sites, cleaning and
+              aligning heterogeneous time series into weekly aggregate output for downstream
+              analysis.
+            </p>
+            <!-- TODO: repository — see comment above. Source: assessment/assessment_1 -->
+          </article>
+
+          <!-- No report PDF for this one — a notebook only, no repo. -->
+          <article class="project-card" data-tags="python,numerical-methods,verification-validation,pde">
+            <div class="project-head">
+              <h3 class="project-title">Verification &amp; Validation in Numerical Computing: From Curve Fitting to a PDE Solver</h3>
+              <span class="project-index">P09</span>
+            </div>
+            <p class="project-meta">python · numerical-methods · verification-validation · 2025</p>
+            <p class="project-desc">
+              Investigated polynomial interpolation and least-squares regression — comparing MSE
+              and MAE under outliers and over-fitting — verified finite-difference derivative
+              approximations against Taylor-series error analysis, then built and rigorously
+              verified and validated a finite-difference solver for the 1D heat equation,
+              including deliberately induced bugs and instabilities to illustrate the FTCS
+              stability limit and the distinction between code verification, solution
+              verification, and model validation.
+            </p>
+            <!-- TODO: repository — see comment above. Source: assessment/assessment_3 -->
+          </article>
+
+          <!-- [NEEDS CONFIRMATION] — only the first task was read; a second task in the same
+               notebook is unread. Dataset appears to be sourced from a published paper
+               (Warder et al.) — check citation requirements before reposting any data. -->
+          <article class="project-card" data-tags="python,machine-learning,classification,renewable-energy">
+            <div class="project-head">
+              <h3 class="project-title">Machine Learning for Wind Resource Characterisation</h3>
+              <span class="project-index">P10</span>
+            </div>
+            <p class="project-meta">python · machine-learning · renewable-energy · 2025</p>
+            <p class="project-desc">
+              Built and compared baseline and ensemble classifiers to predict wind-speed
+              distribution type from environmental features, for use in renewable-energy site
+              resource assessment.
+            </p>
+            <!-- TODO: repository — see comment above. Source: assessment/assessment_4 -->
+          </article>
+
+          <!-- [NEEDS CONFIRMATION] — inferred only from checkpoint filenames (beat_cnn,
+               transformer_ecg, unet_base, diffusion_unet); the notebooks themselves are unread. -->
+          <article class="project-card" data-tags="python,pytorch,deep-learning,signal-processing,generative-models">
+            <div class="project-head">
+              <h3 class="project-title">Deep Learning for ECG Signal Classification and Synthesis</h3>
+              <span class="project-index">P11</span>
+            </div>
+            <p class="project-meta">python · pytorch · deep-learning · 2025</p>
+            <p class="project-desc">
+              Explored deep learning approaches to ECG signals: CNN and Transformer
+              architectures for heartbeat classification, and a baseline versus
+              diffusion-based U-Net for synthetic ECG generation.
+            </p>
+            <!-- TODO: repository — see comment above. Source: assessment/assessment_5 -->
           </article>
 
         </div>

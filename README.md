@@ -10,6 +10,7 @@ Plain HTML/CSS, no build step — GitHub Pages serves this repo's `main` branch 
 - `css/style.css` — all styling
 - `assets/cv/CV.pdf` — your CV, add this file yourself (see `assets/cv/README.md`)
 - `assets/papers/` — publication/poster PDFs, add these yourself (see `assets/papers/README.md`)
+- `assets/projects/` — project report PDFs, add these yourself (see `assets/projects/README.md`)
 
 ## Editing content
 
