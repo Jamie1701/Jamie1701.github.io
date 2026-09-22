@@ -6,6 +6,15 @@
   <title>Jamie Swaine</title>
   <meta name="description" content="Jamie Swaine — portfolio of projects and research." />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#23395d" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jamie1701.github.io/" />
+  <meta property="og:title" content="Jamie Swaine" />
+  <meta property="og:description" content="Jamie Swaine — portfolio of projects and research." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Jamie Swaine" />
+  <meta name="twitter:description" content="Jamie Swaine — portfolio of projects and research." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -19,6 +28,8 @@
   </script>
 </head>
 <body>
+
+  <div class="scroll-progress" id="scroll-progress"></div>
 
   <!-- Remove this banner (and its matching CSS rule) once the example content below is replaced -->
   <p class="preview-banner">Example content below — replace before you publish real projects</p>
@@ -130,7 +141,11 @@
           <h2 class="section-title">Correspondence</h2>
         </div>
         <ul class="contact-list">
-          <li><span class="label">email</span> <a href="mailto:j.a.swaine02@gmail.com">j.a.swaine02@gmail.com</a></li>
+          <li>
+            <span class="label">email</span>
+            <a href="mailto:j.a.swaine02@gmail.com">j.a.swaine02@gmail.com</a>
+            <button class="copy-btn" type="button" data-copy="j.a.swaine02@gmail.com">copy</button>
+          </li>
           <li><span class="label">github</span> <a href="https://github.com/Jamie1701" target="_blank" rel="noopener">github.com/Jamie1701</a></li>
           <!-- Optional — fill in the href, or delete the <li> if you'd rather not link these yet -->
           <li><span class="label">linkedin</span> <a href="#">add link</a></li>
@@ -194,6 +209,46 @@
       );
 
       sections.forEach(function (section) { observer.observe(section); });
+    })();
+  </script>
+
+  <script>
+    // Scroll progress bar
+    (function () {
+      var bar = document.getElementById("scroll-progress");
+      var ticking = false;
+
+      function update() {
+        var doc = document.documentElement;
+        var scrollable = doc.scrollHeight - doc.clientHeight;
+        var pct = scrollable > 0 ? (doc.scrollTop / scrollable) * 100 : 0;
+        bar.style.width = pct + "%";
+        ticking = false;
+      }
+
+      window.addEventListener("scroll", function () {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      });
+      update();
+    })();
+  </script>
+
+  <script>
+    // Copy-to-clipboard for the email address
+    (function () {
+      var button = document.querySelector(".copy-btn");
+      if (!button || !navigator.clipboard) return;
+
+      button.addEventListener("click", function () {
+        navigator.clipboard.writeText(button.getAttribute("data-copy")).then(function () {
+          var original = button.textContent;
+          button.textContent = "copied";
+          setTimeout(function () { button.textContent = original; }, 1500);
+        });
+      });
     })();
   </script>
 

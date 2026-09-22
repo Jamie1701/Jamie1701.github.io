@@ -62,6 +62,16 @@ body {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--accent);
+  z-index: 100;
+}
+
 /* Preview banner — remove this block (and the matching <div> in index.html)
    once you've replaced the example content with your own */
 
@@ -316,7 +326,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 .contact-list li {
   display: flex;
-  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
   border-bottom: 1px dotted var(--rule);
   padding-bottom: 10px;
 }
@@ -336,6 +348,28 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .contact-list a:hover {
   color: var(--accent);
   border-bottom-color: var(--accent);
+}
+
+.contact-list a[target="_blank"]::after {
+  content: " \2197";
+  font-size: 0.85em;
+}
+
+.copy-btn {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 2px 8px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.copy-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent-soft);
 }
 
 /* Footer */
@@ -383,7 +417,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .preview-banner,
   .running-head,
   .nav,
-  .cv-button {
+  .cv-button,
+  .scroll-progress,
+  .copy-btn {
     display: none;
   }
 
