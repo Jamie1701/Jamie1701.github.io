@@ -32,7 +32,7 @@
   <div class="scroll-progress" id="scroll-progress"></div>
 
   <!-- Remove this banner (and its matching CSS rule) once the example content below is replaced -->
-  <p class="preview-banner">Example content below — replace before you publish real projects</p>
+  <!-- <p class="preview-banner">Example content below — replace before you publish real projects</p> -->
 
   <div class="wrap">
     <p class="running-head">
@@ -67,9 +67,24 @@
           <button class="anchor-link" type="button" data-anchor="about" aria-label="Copy link to this section">#</button>
         </div>
         <p>
-          <!-- Example copy — replace with a short bio: 2-4 sentences on who you
-               are, what you work on, and what this page collects. -->
-          This is a placeholder for a short bio that I will replace.
+          I work in scientific machine learning, with a particular interest in
+          decoding black-box systems through explainable AI. My most recent work
+          applies this to nuclear test-ban verification — a novel explainable
+          ensemble for seismic event discrimination, built in support of
+          Comprehensive Test Ban Treaty enforcement, paired with a cross-architecture
+          explainability suite that traces its predictions back to physically
+          meaningful source-physics regions. Earlier work spans generative design of
+          MAX phase and MXene materials — materials of interest for warhead
+          construction — energy systems engineering, computational chemistry, and
+          statistical/solid-state physics. This page collects the papers, projects,
+          and technical reports from that work.
+        </p>
+        <p>
+          I'm fluent in PyTorch and Scikit-learn, with a strong foundation across
+          the scientific Python stack — Pandas and Polars for data processing,
+          NumPy and SciPy for numerical computing — and experience distributing
+          model training across multi-GPU and multi-CPU nodes using Bash-scripted
+          job arrays on HPC clusters.
         </p>
       </section>
 
@@ -324,7 +339,7 @@
                that must be stripped before it's pushed anywhere public. -->
           <article class="project-card" data-tags="python,monte-carlo,statistical-physics,spin-systems">
             <div class="project-head">
-              <h3 class="project-title">mcsim: A Monte Carlo Simulator for 2D Heisenberg Spin Lattices, with a Magnetic Skyrmion Extension</h3>
+              <h3 class="project-title">A Monte Carlo Simulator for 2D Heisenberg Spin Lattices, with a Magnetic Skyrmion Extension</h3>
               <span class="project-index">P07</span>
             </div>
             <p class="project-meta">python · monte-carlo · statistical-physics · 2025</p>
@@ -403,6 +418,123 @@
               diffusion-based U-Net for synthetic ECG generation.
             </p>
             <!-- TODO: repository — see comment above. Source: assessment/assessment_5 -->
+          </article>
+
+          <!-- Chemistry projects below — not part of the assessment/ skim, given directly.
+               None of these are wired to actual links yet per Jamie's instruction: repos and
+               PDFs still need touching up before they go public. Real GitHub repo URLs exist
+               (github.com/Jamie1701/...) for the first three, so once cleaned up these just
+               need an <a class="pub-link" href="https://github.com/Jamie1701/...") added. -->
+
+          <!-- [NEEDS CONFIRMATION] — year not given, guessed from likely UCL BSc timing.
+               Repo: github.com/Jamie1701/Peak-picking -->
+          <article class="project-card" data-tags="python,spectroscopy,signal-processing,cheminformatics">
+            <div class="project-head">
+              <h3 class="project-title">Automated Peak Detection and Functional-Group Assignment for IR and NMR Spectra</h3>
+              <span class="project-index">P12</span>
+            </div>
+            <p class="project-meta">python · spectroscopy · signal-processing · 2023</p>
+            <p class="project-desc">
+              Built a peak-picking pipeline for infrared and NMR spectra using Savitzky-Golay
+              filtering for noise reduction, then assigned candidate chemical functional groups
+              from peak position and intensity and generated comprehensive spectral analysis
+              reports.
+            </p>
+            <!-- TODO: repository — see comment above -->
+          </article>
+
+          <!-- Repo name needs changing before this goes public (currently "Electrochemistry_1")
+               — Jamie flagged this himself. Source report: ~/Documents/Electrochemistry/Report/Results_2.pdf
+               (dated 19 Jan 2025). Repo: github.com/Jamie1701/Electrochemistry_1 -->
+          <article class="project-card" data-tags="electrochemistry,materials-science,energy-storage">
+            <div class="project-head">
+              <h3 class="project-title">Optimisation of an Iron Redox Flow Cell Cathode via Electrolyte Cation and pH Screening</h3>
+              <span class="project-index">P13</span>
+            </div>
+            <p class="project-meta">electrochemistry · energy-storage · materials-science · 2025</p>
+            <p class="project-desc">
+              Investigated cathode performance in a 1mM hydrated iron(II) sulphate redox flow
+              cell using cyclic voltammetry, screening four electrolyte cations (Cs&#8322;, Li&#8322;,
+              K&#8322;, Na&#8322; sulphates) before optimising pH within the acidic region for the
+              best-performing electrolyte. Potassium sulphate at pH &#8776; 3.5 gave peak oxidation
+              and reduction currents roughly 40% higher than the unoptimised system, with the
+              improvement discussed in terms of Marcus theory and proton-coupled electron
+              transfer.
+            </p>
+            <!-- TODO: repository — see comment above -->
+          </article>
+
+          <!-- [NEEDS CONFIRMATION] — the repo README documents ~70% accuracy (matches the
+               figure in Jamie's CV), not the "up to 80%" recalled in his message — worth
+               reconciling which is current. Baseline/random-guess accuracy isn't documented
+               anywhere found; Jamie recalled it as <10%, but note uniform random guessing
+               across 144 classes would be <1% — leaving this as an open placeholder rather
+               than guessing further, per Jamie's own suggestion.
+               Repo: github.com/Jamie1701/Multilayer-perceptron- -->
+          <article class="project-card" data-tags="python,numpy,machine-learning,crystallography">
+            <div class="project-head">
+              <h3 class="project-title">A NumPy Multilayer Perceptron for Crystal Structure Space Group Prediction</h3>
+              <span class="project-index">P14</span>
+            </div>
+            <p class="project-meta">python · numpy · machine-learning · 2024</p>
+            <p class="project-desc">
+              Built a multilayer perceptron from scratch using only NumPy — no ML framework
+              dependency — to predict crystal space group from Magpie-derived compositional
+              features, reaching roughly 70% accuracy across ~3,300 crystal structures spanning
+              144 possible space groups. <!-- TODO: baseline/naive accuracy — see comment above --></p>
+            <!-- TODO: repository — see comment above -->
+          </article>
+
+          <!-- Undergrad literature review, needs sanitizing before anything public: the source
+               file is literally named after the supervisor (ZWIJNENBURG3.pdf) and the document
+               itself contains a "Reflective commentary" section and an Acknowledgements page
+               thanking the supervisor by name and crediting ChatGPT for spelling/grammar —
+               all of that needs stripping, not just the filename.
+               Source: ~/Documents/Literature_Review/Literature_review/ZWIJNENBURG3.pdf (17pp, Feb 2025) -->
+          <article class="project-card" data-tags="literature-review,deep-learning,crystallography,computational-chemistry">
+            <div class="project-head">
+              <h3 class="project-title">Deep Learning for Computational Analysis of Crystal Structures: A Review</h3>
+              <span class="project-index">P15</span>
+            </div>
+            <p class="project-meta">literature-review · deep-learning · crystallography · 2025</p>
+            <p class="project-desc">
+              Reviewed three deep-learning approaches to crystal structure analysis of
+              increasing scope: a neural-network potential-energy-surface model benchmarked
+              against MP2 for ice polymorphs, a classification-and-regression ensemble
+              (CRYSPNet) predicting Bravais lattice, space group and lattice parameters for
+              inorganic crystals — including a correct blind prediction for a previously
+              misassigned rare-earth perovskite — and a neural network emulating DFT to predict
+              atomic and electronic properties of organic molecules, polymer chains and
+              crystals at linear rather than cubic computational cost. Identifies a common
+              limitation across all three studies: none disclose model training-time overhead,
+              which the review argues undermines their claimed efficiency gains.
+            </p>
+            <!-- TODO: repository/PDF — see comment above -->
+          </article>
+
+          <!-- [NEEDS CONFIRMATION] — year not stated in the document itself, guessed from
+               likely UCL BSc timing. CAUTION: the source PDF has a "UCL Chemistry / ASSIGNMENT"
+               banner baked directly into the page-1 layout (not just a cover sheet to crop) and
+               an "Actions on feedback" section responding to marker comments — this needs the
+               PDF regenerated from the LaTeX source without that banner/section, not just edited.
+               Source: ~/Documents/Results_and_Discussion(Comp)/CompChemLATEX(template) copy/computational_chem_final.pdf -->
+          <article class="project-card" data-tags="computational-chemistry,quantum-chemistry,dft">
+            <div class="project-head">
+              <h3 class="project-title">Computational Study of Cyclohexane Conformer Stability and Substituent Effects</h3>
+              <span class="project-index">P16</span>
+            </div>
+            <p class="project-meta">computational-chemistry · quantum-chemistry · dft · 2024</p>
+            <p class="project-desc">
+              Used Hartree-Fock (3-21G basis set) static calculations and coordinate scans to
+              examine axial/equatorial conformer preference and half-chair transition
+              energetics for cyclohexane and four substituted derivatives (methyl, ethynyl,
+              trifluoromethyl, carbonitrile), benchmarking against published experimental and
+              MP2 results. Found the method a reasonable, computationally cheap approximation
+              for electronically simple systems, but identified systematic misprediction for
+              substituents with strong electron correlation or diffuse-orbital effects,
+              attributed to known HF/3-21G limitations.
+            </p>
+            <!-- TODO: repository/PDF — see comment above -->
           </article>
 
         </div>
