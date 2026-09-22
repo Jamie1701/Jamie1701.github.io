@@ -23,10 +23,10 @@
     --paper: #15171a;
     --paper-raised: #1e2126;
     --ink: #e8e9e6;
-    --ink-soft: #9aa0a8;
+    --ink-soft: #b0b6bc;
     --rule: #2d3038;
     --accent: #86a6d1;
-    --accent-soft: #557093;
+    --accent-soft: #7c97bf;
   }
 }
 
@@ -34,10 +34,10 @@
   --paper: #15171a;
   --paper-raised: #1e2126;
   --ink: #e8e9e6;
-  --ink-soft: #9aa0a8;
+  --ink-soft: #b0b6bc;
   --rule: #2d3038;
   --accent: #86a6d1;
-  --accent-soft: #557093;
+  --accent-soft: #7c97bf;
 }
 
 * { box-sizing: border-box; }
