@@ -62,14 +62,20 @@ body {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.scroll-progress {
+.scroll-progress-track {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   height: 3px;
+  background: var(--paper);
+  z-index: 100;
+}
+
+.scroll-progress {
+  height: 100%;
   width: 0%;
   background: var(--accent);
-  z-index: 100;
 }
 
 /* Sticky secondary nav — stays out of the way (translated off-screen) until a
@@ -612,7 +618,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .sticky-nav,
   .nav,
   .cv-button,
-  .scroll-progress,
+  .scroll-progress-track,
   .copy-btn,
   .anchor-link,
   .tag-filter-toggle,
