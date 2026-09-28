@@ -84,7 +84,7 @@
           <button class="anchor-link" type="button" data-anchor="about" aria-label="Copy link to this section">#</button>
         </div>
         <p>
-          I work in <strong>scientific machine learning</strong>, with a particular interest in decoding black-box systems through <strong>explainable AI</strong>. I'm currently with <strong>AWE Nuclear Security Technologies</strong>, applying this to <em>nuclear test-ban verification</em> — a novel explainable ensemble for seismic event discrimination, built in support of <em>Comprehensive Test Ban Treaty</em> enforcement, paired with a cross-architecture explainability suite that traces its predictions back to physically meaningful source-physics regions. Earlier work spans generative design of <strong>MAX phase</strong> and <strong>MXene</strong> materials — materials of interest for warhead construction — <em>energy systems engineering</em>, <em>computational chemistry</em>, and <em>statistical/solid-state physics</em>. This page collects the papers, projects, and technical reports from that work.
+          I work in <strong>scientific machine learning</strong>, with a particular interest in decoding black-box systems through <strong>explainable AI</strong>. I'm currently completing a project with <strong>AWE Nuclear Security Technologies</strong>, applying this to <em>nuclear test-ban verification</em> — a novel explainable ensemble for seismic event discrimination, built in support of <em>Comprehensive Test Ban Treaty</em> enforcement, paired with a cross-architecture explainability suite that traces its predictions back to physically meaningful source-physics regions. Earlier work spans generative design of <strong>MAX phase</strong> and <strong>MXene</strong> materials — materials of interest for warhead construction — <em>energy systems engineering</em>, <em>computational chemistry</em>, and <em>statistical/solid-state physics</em>. This page collects the papers, projects, and technical reports from that work.
         </p>
         <p>
           I'm fluent in <strong>PyTorch</strong> and <strong>Scikit-learn</strong>, with a strong foundation across the scientific Python stack — <strong>Pandas</strong> and <strong>Polars</strong> for data processing, <strong>NumPy</strong> and <strong>SciPy</strong> for numerical computing — and have experience distributing model training across multi-GPU and multi-CPU nodes using Bash-scripted job arrays on HPC clusters.
@@ -113,17 +113,19 @@
           <!-- 1. Most prominent: unpublished, but a repo + own PDF are available -->
           <article class="pub-card" data-status="preprint">
             <div class="pub-head">
-              <h3 class="pub-title">An Explainable Ensemble for Multi-Class Seismic Event Discrimination</h3>
+              <h3 class="pub-title">Explainable Ensemble Learning for Global, Multi-Class, Forward-in-Time Seismic Event Discrimination</h3>
               <span class="pub-index">01</span>
             </div>
             <p class="pub-authors"><strong>Swaine J.</strong>, Green D., Moseley B.</p>
             <p class="pub-meta">manuscript in preparation · 2026</p>
             <div class="pub-actions">
-              <!-- TODO: replace # with the repository URL -->
-              <a class="pub-link" href="#" target="_blank" rel="noopener">view repository &rarr;</a>
+              <!-- TODO: once the repo is public, replace this <button> with:
+                   <a class="pub-link" href="..." target="_blank" rel="noopener">view repository &rarr;</a> -->
+              <button class="pub-link" type="button" data-unavailable="Source code is not yet publicly available — it's expected to be released alongside the preprint publication.">view repository &rarr;</button>
               <a class="pub-link" href="assets/papers/seismic-ensemble.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
               <a class="pub-link" href="assets/papers/seismic-ensemble.pdf" download>download pdf &darr;</a>
             </div>
+            <p class="pub-note" hidden></p>
           </article>
 
           <!-- 2. Published — links out to the journal; local PDF is optional -->
@@ -200,19 +202,23 @@
           <!-- PROJECT CARD — copy an <article> block below to add a new project.
                data-tags drives the filter chips above: lowercase, comma-separated,
                no spaces (e.g. "python,reservoir-engineering") — keep in sync with project-meta.
-               Action buttons reuse the .pub-actions/.pub-link classes from the Publications
-               section (same three link types: view repository / read paper / download pdf —
-               see the comment above the Publications grid for how each works). Cards below
-               with no repository link yet have a TODO comment — the underlying code currently
-               lives in Imperial's GitHub Classroom org, which can't be linked publicly as-is;
-               push a cleaned copy to your own GitHub, then add:
-                 <a class="pub-link" href="..." target="_blank" rel="noopener">view repository &rarr;</a>
+               No card below has action buttons right now — none of the repos or report PDFs
+               are actually in place yet (a broken link is worse than no link), so they were
+               stripped pending the real files/repos. Once a card has something real to point
+               to, add a block just above its closing </article>, reusing the same
+               .pub-actions/.pub-link pattern already used in Publications:
+                 <div class="pub-actions">
+                   <a class="pub-link" href="..." target="_blank" rel="noopener">view repository &rarr;</a>
+                   <a class="pub-link" href="assets/projects/<slug>.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
+                   <a class="pub-link" href="assets/projects/<slug>.pdf" download>download pdf &darr;</a>
+                 </div>
+               (drop whichever of the three don't apply to that card — see the comment above
+               the Publications grid for what each link type does).
                DRAFT NOTE: everything below is a first pass from a light skim of
                ~/Documents/IMPERIAL/assessment — titles/descriptions marked [NEEDS CONFIRMATION]
                are best guesses. Full sourcing detail (exact local paths, confidence levels,
-               flags) is in ~/Downloads/pages_info.md. Report PDFs referenced below don't exist
-               in this repo yet — see assets/projects/README.md for exactly which local file
-               maps to which filename here. -->
+               flags) is in ~/Downloads/pages_info.md. Expected PDF filenames per project are
+               in assets/projects/README.md. -->
 
           <article class="project-card" data-tags="python,reservoir-engineering,multiphase-flow,co2-storage" data-year="2026">
             <div class="project-head">
@@ -227,11 +233,8 @@
               and a numerical spontaneous-imbibition (nonlinear diffusion) model, comparing the
               two across drainage and imbibition regimes.
             </p>
-            <div class="pub-actions">
-              <!-- TODO: repository — see comment above. Source: assessment/BuckleyLevrett -->
-              <a class="pub-link" href="assets/projects/buckley-leverett-displacement.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
-              <a class="pub-link" href="assets/projects/buckley-leverett-displacement.pdf" download>download pdf &darr;</a>
-            </div>
+            <!-- TODO: repository + read/download pdf — see comment above.
+                 Source: assessment/BuckleyLevrett; PDF target: assets/projects/buckley-leverett-displacement.pdf -->
           </article>
 
           <!-- PDF path for this one is a placeholder — the source file wasn't found under
@@ -251,11 +254,8 @@
               analysis identified fractured basement permeability and regional groundwater flow
               as the dominant controls on long-term performance.
             </p>
-            <div class="pub-actions">
-              <!-- TODO: PDF path unconfirmed — see comment above -->
-              <a class="pub-link" href="assets/projects/geothermal-ates.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
-              <a class="pub-link" href="assets/projects/geothermal-ates.pdf" download>download pdf &darr;</a>
-            </div>
+            <!-- TODO: read/download pdf — PDF path unconfirmed, see comment above.
+                 PDF target: assets/projects/geothermal-ates.pdf -->
           </article>
 
           <!-- Same placeholder-PDF situation as the card above. -->
@@ -272,11 +272,8 @@
               storage potential and leakage risk under geological uncertainty in porosity,
               permeability, and connectivity.
             </p>
-            <div class="pub-actions">
-              <!-- TODO: PDF path unconfirmed — see comment above -->
-              <a class="pub-link" href="assets/projects/co2-storage-uncertainty.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
-              <a class="pub-link" href="assets/projects/co2-storage-uncertainty.pdf" download>download pdf &darr;</a>
-            </div>
+            <!-- TODO: read/download pdf — PDF path unconfirmed, see comment above.
+                 PDF target: assets/projects/co2-storage-uncertainty.pdf -->
           </article>
 
           <!-- [NEEDS CONFIRMATION] — only the intro was skimmed. Source: assessment/GEMS4/main.pdf
@@ -293,11 +290,8 @@
               industrial-scale CO&#8322; storage sites to explain their markedly different
               plume-spreading behaviour, drawing on published reservoir characterisation data.
             </p>
-            <div class="pub-actions">
-              <!-- TODO: repository — see comment above. Source: assessment/GEMS4 -->
-              <a class="pub-link" href="assets/projects/co2-plume-migration.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
-              <a class="pub-link" href="assets/projects/co2-plume-migration.pdf" download>download pdf &darr;</a>
-            </div>
+            <!-- TODO: repository + read/download pdf — see comment above.
+                 Source: assessment/GEMS4; PDF target: assets/projects/co2-plume-migration.pdf -->
           </article>
 
           <!-- [NEEDS CONFIRMATION] — title only skimmed.
@@ -316,11 +310,8 @@
               contour and fault maps to estimate trap volume for CO&#8322; storage, combining
               porosity and permeability derived from well-core and log data.
             </p>
-            <div class="pub-actions">
-              <!-- TODO: repository — see comment above. TODO: PDF — see CAUTION above -->
-              <a class="pub-link" href="assets/projects/atlas-co2-structural-model.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
-              <a class="pub-link" href="assets/projects/atlas-co2-structural-model.pdf" download>download pdf &darr;</a>
-            </div>
+            <!-- TODO: repository — see comment above. TODO: read/download pdf — see CAUTION
+                 above. PDF target: assets/projects/atlas-co2-structural-model.pdf -->
           </article>
 
           <!-- [NEEDS CONFIRMATION] — only the title page was skimmed. Source: assessment/GEOMECHANICS
@@ -339,11 +330,8 @@
               validating results against the analytical solution and the early- and late-time
               asymptotic limits across a range of inversion orders.
             </p>
-            <div class="pub-actions">
-              <!-- TODO: repository — see comment above. Source: assessment/GEOMECHANICS -->
-              <a class="pub-link" href="assets/projects/pressure-transient-analysis.pdf" target="_blank" rel="noopener">read paper &rarr;</a>
-              <a class="pub-link" href="assets/projects/pressure-transient-analysis.pdf" download>download pdf &darr;</a>
-            </div>
+            <!-- TODO: repository + read/download pdf — see comment above.
+                 Source: assessment/GEOMECHANICS; PDF target: assets/projects/pressure-transient-analysis.pdf -->
           </article>
 
           <!-- No report PDF for this one — code only. CAUTION: the source repo also contains
@@ -577,11 +565,15 @@
             <a href="mailto:j.a.swaine02@gmail.com">j.a.swaine02@gmail.com</a>
             <button class="copy-btn" type="button" data-copy="j.a.swaine02@gmail.com">copy</button>
           </li>
-          <li><span class="label">github</span> <a class="ext" href="https://github.com/Jamie1701" target="_blank" rel="noopener">github.com/Jamie1701</a></li>
-          <!-- Optional — fill in the href, or delete the <li> if you'd rather not link these yet -->
-          <li><span class="label">huggingface</span> <a href="#">add link</a></li>
-          <li><span class="label">linkedin</span> <a href="#">add link</a></li>
-          <li><span class="label">ORCID</span> <a href="#">add link</a></li>
+          <li>
+            <span class="label">github</span>
+            <a class="ext" href="https://github.com/Jamie1701" target="_blank" rel="noopener">github.com/Jamie1701</a>
+            <a class="ext" href="https://github.com/ada-jas25" target="_blank" rel="noopener">github.com/ada-jas25</a>
+            <a class="ext" href="https://github.com/j-swaine" target="_blank" rel="noopener">github.com/j-swaine</a>
+          </li>
+          <li><span class="label">huggingface</span> <a class="ext" href="https://huggingface.co/Jamie1701" target="_blank" rel="noopener">huggingface.co/Jamie1701</a></li>
+          <li><span class="label">linkedin</span> <a class="ext" href="https://www.linkedin.com/in/jamie-swaine-9236ba395" target="_blank" rel="noopener">linkedin.com/in/jamie-swaine-9236ba395</a></li>
+          <li><span class="label">ORCID</span> <a class="ext" href="https://orcid.org/0009-0004-6248-6736" target="_blank" rel="noopener">orcid.org/0009-0004-6248-6736</a></li>
         </ul>
       </section>
 
